@@ -11,20 +11,23 @@
           <input matInput type="password" placeholder="Password" name="password" password="password" [(ngModel)]="user.password" required>
           <mat-error>Please provide a valid password</mat-error>
         </mat-form-field><br />
-        <div *ngIf="loading; else elseBlock">
+        <div *ngIf="loading">
             <button  mat-raised-button color="primary" disabled>
                 <span>Processing Request</span>
             </button>
             </div>
-            <div #elseBlock>
-                <button  mat-raised-button color="primary" type="submit">
-                <span>Login</span>
+            <div *ngIf="!loading" >
+                <button  mat-raised-button color="accent" type="submit">
+                  <mat-icon>login</mat-icon>
+                  <span>&nbsp;&nbsp;&nbsp;Login</span>
             </button>
         </div>
         <br>
          <a mat-raised-button color="primary" routerLink="/register">
-          Register
+          <mat-icon>account_box</mat-icon>
+        <span>&nbsp;&nbsp;&nbsp;Register</span>
          </a>
       </form>
+      
     </mat-card-content>
   </mat-card>

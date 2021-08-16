@@ -10,7 +10,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  public user : User;
+  public user : User = {
+    _id : null,
+    userName : "",
+    password : ""
+  };
   public warning : any;
   public loading : boolean = false;
   private authSub : any;

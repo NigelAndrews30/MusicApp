@@ -38,7 +38,7 @@ export class AuthService {
     }
   }
 
-  login(user: User): Observable<any> {
+  login(user: any): Observable<any> {
     // Attempt to login
     return this.http.post<any>(`${environment.userAPIBase}/login`, user);
   }
@@ -47,7 +47,7 @@ export class AuthService {
     localStorage.removeItem('access_token');
   }
 
-  register(registerUser : RegisterUser) : Observable<any>{
+  register(registerUser : any) : Observable<any>{
     return this.http.post<any>(`${environment.userAPIBase}/register`, registerUser);
   }
 }

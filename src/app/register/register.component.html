@@ -16,21 +16,22 @@
                 <mat-error>Please provide a valid password</mat-error>
             </mat-form-field><br />
             
-            <div *ngIf="loading; else elseBlock">
+            <div *ngIf="loading">
             <button  mat-raised-button color="primary" disabled>
                 <span>Processing Request</span>
             </button>
             </div>
-            <div #elseBlock>
+            <div *ngIf="!loading">
                 <button  mat-raised-button color="primary" type="submit">
-                <span>Register</span>
+                <mat-icon>account_box</mat-icon>
+                <span>&nbsp;&nbsp;&nbsp;Register</span>
             </button>
         </div>
         </form>
     </mat-card-content>
     <div class="success" *ngIf="success">Registration Successful. Proceed to<br /><br /> 
         <a mat-raised-button color="accent" routerLink="/login">
-            Login
+            <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;Login
         </a> 
     </div>
    

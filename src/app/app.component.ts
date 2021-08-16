@@ -25,8 +25,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
   title = 'music-app';
   searchString: string;
-  token : any;
-  private routeSub : any;
+  public token : any;
   constructor(private router: Router, private auth : AuthService){}
 
   handleSearch(){
@@ -45,6 +44,7 @@ export class AppComponent implements OnInit {
 
     logout() : void{
       localStorage.clear();
+      this.auth.logout()
       this.router.navigate(['/login']);
     }
 

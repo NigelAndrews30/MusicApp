@@ -45,7 +45,9 @@ import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
+    LoginComponent,
     NewReleasesComponent,
     ArtistDiscographyComponent,
     AlbumComponent,
@@ -53,8 +55,8 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     SearchResultComponent,
     FavouritesComponent,
-    RegisterComponent,
-    LoginComponent
+    RegisterComponent
+    
   ],
   imports: [
     BrowserModule,

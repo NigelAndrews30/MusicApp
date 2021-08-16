@@ -36,6 +36,9 @@ export class AlbumComponent implements OnInit, OnDestroy {
      
   }
 
+  
+  
+
   ngOnDestroy(): void{
     this.albumSub?.unsubscribe();
     this.routeSub?.unsubscribe();

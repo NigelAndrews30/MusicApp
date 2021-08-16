@@ -10,15 +10,25 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit, OnDestroy{
-
-  public registerUser : RegisterUser;
+  public registerUser : RegisterUser = {
+    userName: "bob",
+    password: "",
+    password2: ""
+  };
   public warning : any;
   public success : boolean = false;
   public loading : boolean = false;
   public authSub : any;
   constructor(private auth : AuthService) { }
 
+
+
+  ngOnInit(): void {
+    
+  }
+  
   onSubmit(f: NgForm) : void{
+    console.log
     if(this.registerUser.userName && this.registerUser.password === this.registerUser.password2){
       this.loading = true;
       this.authSub  = this.auth.register(this.registerUser).subscribe((data)=>{
@@ -33,9 +43,6 @@ export class RegisterComponent implements OnInit, OnDestroy{
     }
   }
 
-  ngOnInit(): void {
-  }
-  
   ngOnDestroy() : void{
     this.authSub?.unsubscribe();
   }

@@ -14,13 +14,13 @@ export class MusicDataService {
 
   constructor(private spotifyToken: SpotifyTokenService, private http: HttpClient) { }  
 
-  getNewReleases(): Observable<SpotifyApi.ListOfNewReleasesResponse> {
+  getNewReleases(): Observable<any> {
       return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
         return this.http.get<any>("https://api.spotify.com/v1/browse/new-releases", { headers: { "Authorization": `Bearer ${token}` } });
       }));
   }
 
-  getArtistById(id): Observable<SpotifyApi.SingleArtistResponse> {
+  getArtistById(id): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
       return this.http.get<any>(`https://api.spotify.com/v1/artists/${id}`, { headers: { "Authorization": `Bearer ${token}` } });
     }));
@@ -33,13 +33,13 @@ export class MusicDataService {
     })); 
   }
 
-  getAlbumById(id): Observable<SpotifyApi.SingleAlbumResponse> {
+  getAlbumById(id): Observable<any> {
     return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
       return this.http.get<any>(`https://api.spotify.com/v1/albums/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
     })); 
   }
 
-  searchArtists(searchString): Observable<SpotifyApi.ArtistSearchResponse>{
+  searchArtists(searchString): Observable<any>{
     return this.spotifyToken.getBearerToken().pipe(mergeMap(token=>{
       return this.http.get<any>(`https://api.spotify.com/v1/search?q=${searchString}&type=artist&limit=50`, { headers: { "Authorization": `Bearer ${token}` } })
     })); 
